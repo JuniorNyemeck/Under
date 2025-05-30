@@ -1,0 +1,33 @@
+flowchart LR
+    subgraph "Under Workspace"
+        A["Monorepo Under"]
+        B["Apps multiples"]
+        C["Services partagés"]
+    end
+    
+    subgraph "Build Pipeline"
+        D["Under Build System"]
+        E["Architecture Detection"]
+        F["Service Compilation"]
+        G["App Packaging"]
+    end
+    
+    subgraph "Deployment Targets"
+        H["Apache/Nginx - Web Apps"]
+        I["Docker - Microservices"]
+        J["Cloud - API Services"]
+        K["Packagist - Packages"]
+    end
+    
+    A --> D
+    B --> E
+    C --> F
+    
+    D --> G
+    E --> G
+    F --> G
+    
+    G --> H
+    G --> I
+    G --> J
+    G --> K

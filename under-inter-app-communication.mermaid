@@ -1,0 +1,14 @@
+sequenceDiagram
+    participant WebApp as App Web (MVC)
+    participant APIService as Service API (SOA)
+    participant MobileBackend as Backend Mobile
+    participant UnderBus as Under Message Bus
+    participant SharedDB as Shared Database
+    
+    WebApp->>UnderBus: Publish Event
+    UnderBus->>APIService: Route Message
+    APIService->>SharedDB: Requête
+    SharedDB-->>APIService: envoi des données
+    APIService->>UnderBus: Réponse
+    UnderBus->>MobileBackend: Notificaton mise à jour
+    MobileBackend->>WebApp: sync Confirmation

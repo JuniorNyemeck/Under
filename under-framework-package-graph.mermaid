@@ -1,0 +1,31 @@
+graph TD
+    subgraph "Applications"
+        A["apps/web-app"] --> B["@under/mvc"]
+        A --> C["@under/orm"]
+        D["apps/api-service"] --> E["@under/soa"]
+        D --> F["@under/routing"]
+        G["apps/mobile-backend"] --> H["@under/multi-layer"]
+        G --> C
+    end
+    
+    subgraph "Core Packages"
+        B --> I["@under/core"]
+        E --> I
+        H --> I
+        C --> J["@under/database"]
+        F --> K["@under/http"]
+        L["@under/templating"] --> I
+        M["@under/i18n"] --> I
+        N["@under/messaging"] --> I
+        O["@under/cache"] --> I
+    end
+    
+    subgraph "Shared Libraries"
+        P["@under/utils"]
+        Q["@under/security"]
+        R["@under/validation"]
+    end
+    
+    I --> P
+    I --> Q
+    I --> R

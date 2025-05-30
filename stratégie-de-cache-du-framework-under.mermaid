@@ -1,0 +1,29 @@
+flowchart TB
+    A["Requête"] --> B{"Cache trouvé ?"}
+    B -->|Oui| C["Retourner Réponse en Cache"]
+    B -->|Non| D["Traiter la Requête"]
+    
+    D --> E["Exécuter Logique Métier"]
+    E --> F["Requête Base de Données"]
+    F --> G["Rendu Template"]
+    G --> H["Stocker en Cache"]
+    H --> I["Retourner Réponse"]
+    
+    subgraph "Couches de Cache Under"
+        J["Cache Application"]
+        K["Cache Requêtes BDD"]
+        L["Cache Templates"]
+        M["Cache Services"]
+    end
+    
+    subgraph "Moteurs de Cache"
+        N["Redis"]
+        O["Memcached"]
+        P["Système de Fichiers"]
+        Q["APCu"]
+    end
+    
+    J --> N
+    K --> O
+    L --> P
+    M --> Q

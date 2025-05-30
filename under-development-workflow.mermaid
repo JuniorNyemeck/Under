@@ -1,0 +1,27 @@
+sequenceDiagram
+    participant Dev as Développeur
+    participant Under as Under CLI
+    participant Workspace as Workspace
+    participant Apps as Applications
+    participant Services as Services Partagés
+    
+    Dev->>Under: under create:app --arch=mvc
+    if(--arch==mvc){
+    Under->>Workspace: Créer structure app
+    Under->>Apps: Initialiser architecture MVC
+    }
+    Dev->>Under: under add:service orm
+    Under->>Services: Ajouter service ORM
+    Under->>Apps: Lier service à l'app
+    
+    Dev->>Under: under build
+    Under->>Services: Compiler services partagés
+    Under->>Apps: Compiler applications
+    Under->>Workspace: Optimiser dépendances
+    
+    Dev->>Under: under test
+    Under->>Apps: Exécuter tests unitaires
+    Under->>Workspace: Tests d'intégration
+    
+    Dev->>Under: under deploy
+    Under->>Apps: Déployer applications

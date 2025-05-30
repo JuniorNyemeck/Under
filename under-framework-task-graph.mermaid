@@ -1,0 +1,22 @@
+graph LR
+    A["web-app:build"] --> B["mvc:build"]
+    A --> C["orm:build"]
+    A --> D["templating:build"]
+    
+    E["api-service:build"] --> F["soa:build"]
+    E --> G["routing:build"]
+    E --> C
+    
+    H["mobile-backend:build"] --> I["multi-layer:build"]
+    H --> C
+    
+    B --> J["core:build"]
+    F --> J
+    I --> J
+    C --> K["database:build"]
+    G --> L["http:build"]
+    D --> J
+    
+    J --> M["utils:build"]
+    J --> N["security:build"]
+    J --> O["validation:build"]

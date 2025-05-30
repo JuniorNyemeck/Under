@@ -1,0 +1,79 @@
+flowchart TB
+    subgraph "Racine Espace de Travail Under"
+        A["under.json"]
+        B["composer.json"]
+        C["phpunit.xml"]
+        D["Configuration Globale"]
+    end
+    
+    subgraph "Couche Applications"
+        E["App Web (MVC)"]
+        F["Service API (SOA)"]
+        G["Backend Mobile (Multi-couches)"]
+        H["App Personnalisée (Architecture Utilisateur)"]
+        I["App Monolithique"]
+    end
+    
+    subgraph "Packages d'Architecture"
+        J["Package MVC"]
+        K["Package SOA"]
+        L["Package Multi-couches"]
+        M["Package Monolithique"]
+        N["Architecture Personnalisée"]
+    end
+    
+    subgraph "Services Métier"
+        O["ORM/ODM"]
+        P["Moteur de Routage"]
+        Q["Moteur de Templates"]
+        R["Service i18n"]
+        S["Service Messagerie"]
+        T["Service Email"]
+        U["Système de Cache"]
+        V["Service Sécurité"]
+    end
+    
+    subgraph "Couche Fondation"
+        W["Noyau Under"]
+        X["Couche HTTP"]
+        Y["Couche Base de Données"]
+        Z["Couche Sécurité"]
+        AA["Utilitaires Communs"]
+    end
+    
+    A --> E
+    A --> F
+    A --> G
+    A --> H
+    A --> I
+    
+    E --> J
+    F --> K
+    G --> L
+    H --> N
+    I --> M
+    
+    J --> O
+    J --> P
+    J --> Q
+    K --> P
+    K --> S
+    L --> O
+    L --> U
+    M --> O
+    M --> P
+    M --> Q
+    
+    O --> W
+    P --> X
+    Q --> W
+    R --> W
+    S --> W
+    T --> W
+    U --> W
+    V --> Z
+    
+    W --> Y
+    X --> Z
+    Y --> AA
+    Z --> AA

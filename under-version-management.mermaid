@@ -1,0 +1,26 @@
+graph LR
+    A["Code Changes"] --> B["Semantic Analysis"]
+    B --> C["Détecton d'upgrade de verson"]
+    C --> D["Package de Versioning"]
+    
+    D --> E["Core Services"]
+    D --> F["Packages d'architecture"]
+    D --> G["Applications"]
+    
+    E --> H["Composer Update"]
+    F --> H
+    G --> H
+    
+    H --> I["Dependances"]
+    I --> J["Workspace"]
+    J --> K["Build Affected Apps"]
+    
+    subgraph "Version Types"
+        L["Major - Breaking Changes"]
+        M["Minor - Nouvelles Features"]
+        N["Patch - Fix des bug"]
+    end
+    
+    C --> L
+    C --> M
+    C --> N

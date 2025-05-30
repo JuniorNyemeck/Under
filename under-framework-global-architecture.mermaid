@@ -1,0 +1,67 @@
+flowchart TB
+    subgraph "Under Workspace Root"
+        A["under.json"]
+        B["composer.json"]
+        C["phpunit.xml"]
+    end
+    
+    subgraph "Applications Layer"
+        D["Web App (MVC)"]
+        E["API Service (SOA)"]
+        F["Mobile Backend (Multi-layer)"]
+        G["Custom App (User-defined)"]
+    end
+    
+    subgraph "Architecture Packages"
+        H["MVC Package"]
+        I["SOA Package"]
+        J["Multi-layer Package"]
+        K["Monolithic Package"]
+    end
+    
+    subgraph "Core Services"
+        L["ORM/ODM"]
+        M["Routing Engine"]
+        N["Template Engine"]
+        O["i18n Service"]
+        P["Messaging Service"]
+        Q["Email Service"]
+        R["Cache System"]
+    end
+    
+    subgraph "Foundation"
+        S["Under Core"]
+        T["HTTP Layer"]
+        U["Database Layer"]
+        V["Security Layer"]
+    end
+    
+    A --> D
+    A --> E
+    A --> F
+    A --> G
+    
+    D --> H
+    E --> I
+    F --> J
+    G --> K
+    
+    H --> L
+    H --> M
+    H --> N
+    I --> M
+    I --> P
+    J --> L
+    J --> R
+    
+    L --> S
+    M --> T
+    N --> S
+    O --> S
+    P --> S
+    Q --> S
+    R --> S
+    
+    S --> U
+    T --> V
+    U --> V

@@ -1,0 +1,16 @@
+graph TD
+    A["web-app:build"] --> B["mvc (Transit Node)"]
+    B --> C["core:build"]
+    B --> D["templating:build"]
+    
+    E["api-service:build"] --> F["soa (Transit Node)"]
+    F --> C
+    F --> G["routing:build"]
+    
+    H["shared-components"] --> I["utils (Transit Node)"]
+    I --> J["security:build"]
+    I --> K["validation:build"]
+    
+    style B fill:#ffeb3b,stroke:#f57f17,color:#000
+    style F fill:#ffeb3b,stroke:#f57f17,color:#000
+    style I fill:#ffeb3b,stroke:#f57f17,color:#000

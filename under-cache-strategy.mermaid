@@ -1,0 +1,29 @@
+flowchart TB
+    A["Request"] --> B{"Cache Hit?"}
+    B -->|Yes| C["Return Cached Response"]
+    B -->|No| D["Process Request"]
+    
+    D --> E["Execute Business Logic"]
+    E --> F["Database Query"]
+    F --> G["Template Rendering"]
+    G --> H["Store in Cache"]
+    H --> I["Return Response"]
+    
+    subgraph "Under Cache Layers"
+        J["Application Cache"]
+        K["Database Query Cache"]
+        L["Template Cache"]
+        M["Service Cache"]
+    end
+    
+    subgraph "Cache Backends"
+        N["Redis"]
+        O["Memcached"]
+        P["File System"]
+        Q["APCu"]
+    end
+    
+    J --> N
+    K --> O
+    L --> P
+    M --> Q

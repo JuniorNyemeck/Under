@@ -1,0 +1,21 @@
+graph TD
+    A["app-web:build"] --> B["mvc (Nœud Transit)"]
+    B --> C["core:build"]
+    B --> D["templating:build"]
+    
+    E["service-api:build"] --> F["soa (Nœud Transit)"]
+    F --> C
+    F --> G["routage:build"]
+    
+    H["composants-partages"] --> I["utils (Nœud Transit)"]
+    I --> J["securite:build"]
+    I --> K["validation:build"]
+    
+    L["backend-mobile:build"] --> M["multi-couches (Nœud Transit)"]
+    M --> C
+    M --> N["orm:build"]
+    
+    style B fill:#ffeb3b,stroke:#f57f17,color:#000
+    style F fill:#ffeb3b,stroke:#f57f17,color:#000
+    style I fill:#ffeb3b,stroke:#f57f17,color:#000
+    style M fill:#ffeb3b,stroke:#f57f17,color:#000

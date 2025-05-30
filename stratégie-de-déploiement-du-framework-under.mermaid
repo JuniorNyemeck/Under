@@ -1,0 +1,45 @@
+flowchart LR
+    subgraph "Espace de Travail Under"
+        A["Monorepo Under"]
+        B["Applications Multiples"]
+        C["Services Partagés"]
+    end
+    
+    subgraph "Pipeline de Construction"
+        D["Système de Build Under"]
+        E["Détection Architecture"]
+        F["Compilation Services"]
+        G["Empaquetage Applications"]
+    end
+    
+    subgraph "Cibles de Déploiement"
+        H["Apache/Nginx - Apps Web"]
+        I["Docker - Microservices"]
+        J["Cloud - Services API"]
+        K["Packagist - Packages PHP"]
+        L["Serveurs Dédiés - Apps Monolithiques"]
+    end
+    
+    A --> D
+    B --> E
+    C --> F
+    
+    D --> G
+    E --> G
+    F --> G
+    
+    G --> H
+    G --> I
+    G --> J
+    G --> K
+    G --> L
+    
+    subgraph "Environnements"
+        M["Développement"]
+        N["Test/Staging"]
+        O["Production"]
+    end
+    
+    G --> M
+    G --> N
+    G --> O
